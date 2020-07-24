@@ -37,7 +37,6 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -46,21 +45,19 @@
         app:layout_constraintVertical_bias="0.211" />
 
     <TextView
-        android:id="@+id/PasswordTextview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Password"
         app:layout_constraintBottom_toTopOf="@+id/editTextPassword"
         app:layout_constraintEnd_toEndOf="@+id/editTextPassword"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPassword" />
+        app:layout_constraintStart_toStartOf="@+id/editTextPassword" />
 
     <TextView
-        android:id="@+id/UsernameTextview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Username"
         app:layout_constraintBottom_toTopOf="@+id/editTextUserName"
         app:layout_constraintEnd_toEndOf="@+id/editTextUserName"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName" />
+        app:layout_constraintStart_toStartOf="@+id/editTextUserName" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
