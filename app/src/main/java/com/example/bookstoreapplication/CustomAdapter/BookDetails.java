@@ -16,6 +16,7 @@ public class BookDetails extends RecyclerView.ViewHolder {
     public BookDetails(@NonNull View itemView) {
         super(itemView);
 
+        Cover_photo = itemView.findViewById(R.id.book_cover);
         Book_title = itemView.findViewById(R.id.list_BookTitle);
         AuthorList = itemView.findViewById(R.id.list_Author);
     }

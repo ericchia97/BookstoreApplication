@@ -11,7 +11,7 @@ public class BookID extends RealmObject {
     @PrimaryKey
     private int BookId;
 
-    private String BookCover;
+    private byte[] BookCover;
     @Required
     private String BookName;
     @Required
@@ -38,11 +38,11 @@ public class BookID extends RealmObject {
         BookId = bookId;
     }
 
-    public String getBookCover() {
+    public byte[] getBookCover() {
         return BookCover;
     }
 
-    public void setBookCover(String bookCover) {
+    public void setBookCover(byte[] bookCover) {
         BookCover = bookCover;
     }
 

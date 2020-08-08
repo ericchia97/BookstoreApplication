@@ -1,11 +1,14 @@
 package com.example.bookstoreapplication;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.bookstoreapplication.Model.BookID;
@@ -16,7 +19,7 @@ import io.realm.Realm;
 public class EditBookDetails extends AppCompatActivity {
     Realm realm;
     BookID bookID;
-
+    ImageButton editBookCover;
     EditText editBookName;
     EditText editAuthor;
     EditText editDescription;
@@ -28,6 +31,7 @@ public class EditBookDetails extends AppCompatActivity {
         setContentView(R.layout.edit_book_details);
 
         realm = Realm.getDefaultInstance();
+        editBookCover = findViewById(R.id.BookCoverButton);
         editBookName = findViewById(R.id.Edit_BookName);
         editAuthor = findViewById(R.id.Edit_AuthorName);
         editDescription = findViewById(R.id.Edit_Description);
@@ -38,6 +42,9 @@ public class EditBookDetails extends AppCompatActivity {
         final int position = getIntent.getIntExtra("ID_no", 0);
         bookID = realm.where(BookID.class).equalTo("BookId", position).findFirst();
 
+        byte[] bookCover = bookID.getBookCover();
+        Bitmap bitmap = BitmapFactory.decodeByteArray(bookCover, 0, bookCover.length);
+        editBookCover.setImageBitmap(bitmap);
         editBookName.setText(bookID.getBookName());
         editAuthor.setText(bookID.getAuthorName());
         editDescription.setText(bookID.getDescription());

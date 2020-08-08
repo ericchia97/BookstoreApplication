@@ -7,6 +7,8 @@ import io.realm.Realm;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +33,6 @@ public class CustomAdapter extends RecyclerView.Adapter<BookDetails> {
     @Override
     public BookDetails onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         view = LayoutInflater.from(c).inflate(R.layout.book_list_details, parent, false);
-
         return new BookDetails(view);
     }
 
@@ -48,9 +49,13 @@ public class CustomAdapter extends RecyclerView.Adapter<BookDetails> {
                 c.startActivity(intent);
             }
         });
+        byte[] bookCover = bookID.getBookCover();
+        Bitmap bitmap = BitmapFactory.decodeByteArray(bookCover, 0, bookCover.length);
+        holder.Cover_photo.setImageBitmap(bitmap);
         holder.Book_title.setText(bookID.getBookName());
         holder.AuthorList.setText(bookID.getAuthorName());
         holder.itemView.setTag(ID_no);
+        
     }
 
     @Override
